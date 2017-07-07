@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="script.js"></script>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
+    <script>
+    var name = prompt("Whats your name?");
+    alert("Hello " + name);
+
+    var words = [
+      "galvanize",
+      "javascript",
+      "angular",
+      "react",
+      "programming",
+      "python",
+      "ruby"
+    ];
+
+    var word = words[Math.floor(Math.random() * words.length)];
+    console.log(word);
+
+    var answerArray = [];
+    for (var i = 0; i < word.length; i++) {
+      answerArray[i] = "_";
+    }
+
+    var remaningLetters = words.length;
+
+    while (remaningLetters > 0) {
+      alert(answerArray.join(" "));
+
+      var guess = prompt("Guess a letter or click cancel to stop.");
+
+        if (guess === null) {
+          break;
+        } else if (guess.length !== 1) {
+          alert("Oops, you can only enter in one letter at a time!");
+        } else {
+          for (var j = 0; j < word.length; j++) {
+            if (word[j] === guess) {
+              answerArray[j] = guess;
+              remaningLetters--;
+            }
+          }
+        }
+    }
+    alert(answerArray.join(" "));
+    alert("Way to go! The answer was " + word + "!");
+
+    </script
 
   </body>
 </html>
